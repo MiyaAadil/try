@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Container with Dropdown</title>
+  <link rel="stylesheet" href="moon.css">
+</head>
+<body>
+
+    <div class="container">
+        
+            <!-- Space for fitting the images -->
+            <img id="image1" src="240p.jpg" alt="Image 1">
+            <img id="image2" src="480p.jpg" alt="Image 2">
+            <img id="image3" src="1080p.jpg" alt="Image 3">
+            <img id="image4" src="Aa1.jpg" alt="Image 4">
+
+        <!-- Dropdown button -->
+        <div class="dropdown">
+            <h1>Moon photos</h1>
+          <button onclick="toggleDropdown()">Quality
+            <i class="fa-solid fa-caret-down"></i>
+        
+        </button>
+          <!-- Dropdown content -->
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#" onclick="changeImage('image1')">240p</a>
+            <a href="#" onclick="changeImage('image2')">480p</a>
+            <a href="#" onclick="changeImage('image3')">1080p</a>
+            <a href="#" onclick="changeImage('image4')">4k</a>
+          </div>
+        </div>
+
+        <!-- Audio element -->
+        <audio id="audioPlayer" src="Tightrope.mp3"></audio>
+      </div>
+      
+      <script>
+        // JavaScript function to toggle dropdown content visibility
+        function toggleDropdown() {
+          var dropdownContent = document.getElementById("myDropdown");
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        }
+      
+        // JavaScript function to change displayed image
+        function changeImage(imageId) {
+          // Hide all images
+          var images = document.querySelectorAll('.container img');
+          images.forEach(function(img) {
+            img.style.display = 'none';
+          });
+      
+          // Show the selected image
+          var selectedImage = document.getElementById(imageId);
+          if (selectedImage) {
+            selectedImage.style.display = 'block';
+          }
+        }
+
+
+
+        function changeImage(imageId) {
+  // Hide all images
+  var images = document.querySelectorAll('.container img');
+  images.forEach(function(img) {
+    img.style.display = 'none';
+  });
+
+  // Show the selected image
+  var selectedImage = document.getElementById(imageId);
+  if (selectedImage) {
+    selectedImage.style.display = 'block';
+  }
+
+  // Check if "4k" option is clicked
+  if (imageId === 'image4') {
+    // Play the audio
+    var audioPlayer = document.getElementById('audioPlayer');
+    audioPlayer.play();
+  }
+}
+
+      </script>
+
+</body>
+</html>
